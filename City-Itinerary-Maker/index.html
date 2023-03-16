@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title> Home Page</title>
+        <link href = "style.css" rel = "stylesheet" type = "text/css"> 
+    </head>
+    <body>
+
+        <header class="header">
+
+            <a href="#" class="logo"> <i class="fas fa-hiking"></i> travel. </a>
+        
+            <nav class="navbar">
+                <div id="nav-close" class="fas fa-times"></div>
+                <a href="index2.html">home</a>
+                <a href="#about">about</a>
+                <a href="#shop">shop</a>
+                <a href="#packages">packages</a>
+                <a href="#reviews">reviews</a>
+                <a href="#blogs">blogs</a>
+            </nav>
+        
+           
+        
+        </header>
+
+
+
+
+
+        <!-- HOME SECTION STARTS -->
+        <section class="home" id="home">
+            <div class="box" style="background: url(images/home-bg-1.jpg) no-repeat;">
+                <div class="content">
+                    <h1> Create a Itinerary for free </h1>
+                    <button class = "open-button" onclick = "openForm()">
+                        Start Planning 
+                    </button>
+                    <div class="form-popup" id="myForm">
+                        <form action="action_page.php" class="form-container">
+                          <h1>Itinerary planner</h1>
+                      
+                          <label for="destination"><b>destination</b></label>
+                          <br>
+                          <input type="text" placeholder="Enter destination" name="destination" required>
+                      
+                          <label for="startDate"><b>Start Date</b></label>
+                          <input type ="date" name="startDate" required>
+                          <br>
+                          <br>
+        
+                          <label for="endDate"><b>End Date</b></label>
+                          <input type="date" name="endDate" required>
+                          <br>
+                          <br>
+                        
+                          <button type="submit" class="btn">Submit</button>
+                          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+        <!-- <button class = "open-button" onclick = "openForm()">
+                Start Planning 
+            </button>
+            <div class="form-popup" id="myForm">
+                <form action="action_page.php" class="form-container">
+                  <h1>Itinerary planner</h1>
+              
+                  <label for="destination"><b>destination</b></label>
+                  <br>
+                  <input type="text" placeholder="Enter destination" name="destination" required>
+              
+                  <label for="startDate"><b>Start Date</b></label>
+                  <input type ="date" name="startDate" required>
+                  <br>
+                  <br>
+
+                  <label for="endDate"><b>End Date</b></label>
+                  <input type="date" name="endDate" required>
+                  <br>
+                  <br>
+                
+                  <button type="submit" class="btn">Submit</button>
+                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+
+        -->
+        <!-- HOME SECTION ENDS -->
+
+
+        <!-- SERVICE SECTION STARTS-->
+        <section class = "services">
+            <div class="box" style="background: url(images/category-4.jpg) no-repeat;">
+                <div class="content">
+                    <h1 class="h11"> 5 days in Mumbai </h1>
+                    <h1 class="h12"> Starting Date - Ending Date</h1>
+                </div>
+            </div>
+        </section>
+        <!-- SERVICE SECTION ENDS-->
+
+        <!-- TIMELINE SECTION STARTS-->
+        <section class="timeline">
+            <h1> timeline </h1>
+            <table>
+                <tr>
+                    <th>Time</th>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>review</th>
+                </tr>
+            </table>
+
+        </section>
+    
+    
+
+
+        <script src = "script.js"> </script>
+    </body>
+</html>

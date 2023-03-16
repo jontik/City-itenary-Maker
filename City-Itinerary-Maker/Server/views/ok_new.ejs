@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html id="a1">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+        <style>
+            .load {
+              position: fixed;
+              margin-left: 40vw;
+              margin-top: 40vh;
+              border: 16px solid #f3f3f3;
+              border-radius: 50%;
+              border-top: 16px solid #3498db;
+              width: 120px;
+              height: 120px;
+              -webkit-animation: spin 2s linear infinite; /* Safari */
+              animation: spin 2s linear infinite;
+            }
+            
+            /* Safari */
+            @-webkit-keyframes spin {
+              0% { -webkit-transform: rotate(0deg); }
+              100% { -webkit-transform: rotate(360deg); }
+            }
+            
+            @keyframes spin {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+        </style>
+
+
+
+
+        <style>
+            .navbar-nav> li{
+            padding-left:30px;
+            padding-right:30px;
+            }
+            .navbar-nav > li{
+            margin-left:30px;
+            margin-right:30px;
+            }
+
+
+                        .info-card-container {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid red;
+                width: 85%;
+                margin: auto;
+            }
+            .info-card {
+                display: flex;
+                background-color:rgb(238,238,238);
+                border-radius: 5px;
+            }
+            .card-time {
+                width: 10%;
+                border: 1px solid blueviolet;
+            }
+            .card-image {
+                width: 40%;
+                border: 1px solid blue;
+            }
+            .card-image img {
+                width: 100%;
+                min-height: 100%;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            .card-text {
+                width: 50%;
+                padding: 10px;
+                border: 1px solid green;
+            }
+
+
+
+            .travel-card-container {
+                display: flex;
+                flex-direction: column; 
+                width: 85%;
+                height: 20%;
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                
+            }
+            .travel-card {
+                display: flex;
+                background-color:#ffffff;
+                border-radius: 5px;
+            }
+            .travel-time {
+                width: 5%;
+                
+            }
+
+            .travel-image {
+                width: 5%;
+                padding: 10px;  
+            }
+
+            .travel-image img {
+                width: 60%;
+                min-height: 60%;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+            .travel-text {
+                width: 90%;
+            }
+
+
+
+
+          /* added recently*/
+            .img-fluid {
+            /*width: 100%;*/
+            height: 40vh;
+            
+           /* object-fit: cover;*/
+            }
+            .card-image img {
+            width: 100%;
+            min-height: 100%;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            }
+            .row {
+                display: flex;
+
+            }
+            .col-md-2{
+                width: 16.66%;
+            }
+            .col-md-4{
+                width: 33.33%;
+            }
+            .col-md-6{
+                width: 80%;
+            }
+
+           
+
+
+
+            .travel-card-container {
+                display: flex;
+                flex-direction: column; 
+                width: 65%;
+                height: 20%;
+                margin: auto;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                
+            }
+            .travel-card {
+                display: flex;
+                background-color:#ffffff;
+                border-radius: 5px;
+            }
+            .travel-time1 {
+                width: 10%;
+                margin-top: 20px;
+                
+            }
+
+            .travel-image {
+                width: 10%;
+                padding: 10px;  
+            }
+
+            .travel-image img {
+                width: 60%;
+                min-height: 60%;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+            .travel-text {
+                width: 90%;
+            }
+            #more {display: none;}
+
+
+
+        </style>
+
+        <script>
+            localStorage.removeItem("myResults");
+            localStorage.removeItem("city");
+            localStorage.removeItem("endDate");
+            localStorage.removeItem("startDate");
+            
+                function remove(event){
+                    var z = event.target.id;
+                    document.getElementById(z).parentElement.innerHTML = "<b>This Event has been removed.<br> You have free time in this interval !</b>";
+                }
+
+                //var places=[],lat=[],lon=[],startArray = [],endArray = [];
+
+                function findDate(x){
+                    x=x-1;
+                    var startDate = localStorage.getItem("startDate");
+                    var result = new Date(startDate);
+                    result.setDate(result.getDate() + x);
+                    result = result.toDateString();
+                    const indexOfSpace = result.indexOf(' ');
+                    return result.substring(indexOfSpace + 1);
+                }
+
+
+                function printTime(startTime,endTime){
+                    var a = getTimes(startTime);
+                    var b = getTimes(endTime);
+                    if(a.d != b.d){
+                        b.d = a.d;
+                        if(b.y==12){b.y=0;}
+                        b.y = b.y + 8;
+                        b.z = b.z + 0;
+                        if(b.z>=60){b.z-=60; b.y+=1;}
+                    }
+                    if(a.z<10){a.z="0"+a.z;}
+                    if(b.z<10){b.z="0"+b.z;}
+
+                    var date = findDate(a.d);
+                    return `<br><br><h5>${date} <br><br>  ${a.y}:${a.z} to ${b.y}:${b.z} PM </h5>`;
+                }
+
+                function getTimes(x){
+                    var d = 1+Math.trunc(x/8);
+                    var c = (Math.trunc(x)%8)+(x-Math.trunc(x))+12;
+
+                    var y = Math.trunc(c);
+                    var z = Math.trunc(60*(c-y));
+                    if(y>12){y-=12;} 
+
+                    return {d,y,z};
+                }
+
+
+
+
+                function printFormatOfTime(x){
+
+                    var d = 1+Math.trunc(x/8);
+                    var c = (Math.trunc(x)%8)+(x-Math.trunc(x))+12;
+
+                    var y = Math.trunc(c);
+                    var z = Math.trunc(60*(c-y));
+                    if(y>12){y-=12;} 
+                    if(z<10){z="0"+z;}
+
+
+                    return y + ":" + z + " PM ";
+                }
+
+                function build_card(id,image,title,startTime,endTime,Category,Address,website,description){
+                   /* var component = ` <div style="background-color: #87CEFA;">
+                        <div class="card" style="width: 18rem; margin-left: 30%; margin-top: 10%;" id=${"card"+id}>
+                    <button onclick="remove(event)" id="${"click"+id}">remove</button>
+                    <img class="card-img-top" src="${image}" alt="Card image cap" width="300" height="300">
+                    <div class="card-body">
+                    <h5 class="card-title" style="font-weight: 900;">${title} (stay from ${printFormatOfTime(startTime)} to ${printFormatOfTime(endTime)} )</h5>
+                    <h5 class="card-title"><b>Category - </b> ${Category}   </h5>
+                    <p class="card-text"><b>Address-</b> ${Address}</p>
+                    <a href="${website}" class="btn btn-primary">Visit Website</a>
+                    </div>
+                    </div></div>`
+                    return component;
+                    */
+                
+                
+                
+                    /*var component = `<div class="info-card-container">
+                    <div class="info-card">
+                            <div class="card-time">
+                                ${printTime(startTime,endTime)}
+                                
+                            </div>
+                            <div class="card-image">
+                                <img src=${image} alt = "image" />
+                            </div>
+                            <div class="card-text">
+                                <h2><b>${title}</b></h2>
+                                <h3>${Category}</h3>
+                                <p>${Address}</p>
+                                <a href = ${website} target="_blank" > Visit Website </a>
+                            </div>
+                        </div>
+                        <button onclick="remove(event)" id="${"click"+id}">remove</button>
+                    </div>`
+                    */
+                   
+                   var component = `<div class="container mt-5">
+
+                                        <div class="card mb-3 me-3 ms-3" style="width: 60rem;" >
+                                            <div class="row" >
+                                                <div class="col-md-2">
+                                                <!-- <h4 class="card-subtitle mb-5 ">12:00 </h4> 
+                                                    <div class="card-header">
+                                                        12:00 
+                                                    </div>
+
+                                                    <div class="card-header">
+                                                        14:00 
+                                                    </div>
+                                                -->
+                                                <div class="card-header">
+                                                    ${printTime(startTime,endTime)}
+                                                </div>
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item">${printFormatOfTime(startTime)}</li>
+                                                        <li class="list-group-item">${printFormatOfTime(endTime)}</li>
+                                                    </ul>
+
+                                                
+                                                </div>
+                                               
+                                                    <div class="col-md-4 card-image mt-3">
+                                                        <img src=${image} class="img-fluid" alt = "image" />
+                                                    </div>
+                                            
+                                                <div class="col-md-6 mb-3 me-3">
+                                                    <h2 class="card-title mt-3"> ${title}</h2>
+                                                    <h6 class="card-subtitle mb-2 text-muted">${Category}</h6>
+                                                    <p class="card-text">${Address}</p>
+                                                    <!--Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, <span id="dots">...</span><span id="more">
+                                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic 
+                                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                                                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
+                                                    -->
+                                                    
+                                                    <div class="card-text" id="desc${id}" >
+                                                    
+                                                    
+                                                <!-- <button onclick="myFunction()" id="myBtn" style = "display:inline-block;" class="btn btn-light">Read more</button>-->
+                                                    </div>
+                                                    
+                                                    
+                                                    <a href=${website} class="btn btn-primary">Visit website</a>
+                                                    
+                                                    
+                                                    <button type="button" class="btn btn-outline-danger" id="${"click"+id}" onclick="remove(event)">Delete</button>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        </div>`
+                    return component;
+                }
+                
+                
+                function diffInDays(){
+                        function parseDate(str) {
+                            var mdy = str.split('-');
+                            return new Date(mdy[0], mdy[1], mdy[2]);
+                        }  
+                    var startDate = parseDate(document.getElementById("startTime").value); //to update time value in each input bar
+                    var endDate = parseDate(document.getElementById("endTime").value); //to update time value in each input bar
+                    return (1+Math.round((endDate-startDate)/(1000*60*60*24)))*60*8;
+                }
+
+                function diffInHours() {
+                        var start = document.getElementById("startTime").value; //to update time value in each input bar
+                        var end = document.getElementById("endTime").value; //to update time value in each input bar
+                        start = start.split(":");
+                        end = end.split(":");
+                        var startDate = new Date(0, 0, 0, start[0], start[1], 0);
+                        var endDate = new Date(0, 0, 0, end[0], end[1], 0);
+                        var diff = endDate.getTime() - startDate.getTime();
+                        var hours = Math.floor(diff / 1000 / 60 / 60);
+                        diff -= hours * 1000 * 60 * 60;
+                        var minutes = Math.floor(diff / 1000 / 60);
+                        return 60*hours+minutes;
+                    }
+
+                function openForm() {
+                    document.getElementById("myForm").style.display = "block";
+                }
+    
+                function closeForm() {
+                    document.getElementById("myForm").style.display = "none";
+                }
+                
+                function OpenMapFunctionality(){
+                    // var x = JSON.parse(localStorage.getItem("myResults"));
+                    // console.log(x);
+                    // var places = x.path;
+                    window.location.replace("/a");
+                    // axios.get("/a/"+places+"/"+lat+"/"+lon);
+                    //document.getElementById('a1').innerHTML = z.data;
+                }
+
+                function OpenCalenderFunctionality(){
+                    var x = JSON.parse(localStorage.getItem("myResults"));
+                    var start=[],end=[];
+                    for(var i=0;i<x.startArray.length;i++){
+                        start.push(Math.round(x.startArray[i]*100)/100);
+                        end.push(Math.round(x.endArray[i]*100)/100);
+                    }
+
+                    var places = x.path;
+                    var startDate = localStorage.getItem("startDate");
+                    window.location.replace("/c/"+start+"/"+end+"/"+places+"/"+startDate);
+                }
+
+                function reverse(date){
+                    return date.split('-').reverse().join("-")
+                }
+
+
+                async function submitForm(){
+                    // Normal Page Integration----
+                    document.getElementById("load").style.display = "block";
+                    var startTime = document.getElementById("startTime").value; // its date actually---
+                    var endTime = document.getElementById("endTime").value;
+                    // startTime = startTime.split('-').reverse().join("-");
+                    // endTime = endTime.split('-').reverse().join("-");
+
+                   var time = diffInDays();
+                   var location = document.getElementById("location").value;
+                    if(time<=0){
+                        alert("Invalid Time Config");
+                        return;
+                    }
+                    document.getElementById("response").style.display = "block";
+                    document.getElementById("home").style.display = "none";
+
+                    var l = document.getElementById("loca");
+                    var dateDisplay = document.getElementById("displayDate");
+                    l.innerHTML = location;
+                    dateDisplay.innerHTML = `${reverse(startTime)} to ${reverse(endTime)}`;
+
+                    
+                    var res = await axios.get("/search/"+location+"/"+time);
+                    document.getElementById("load").style.display = "none";
+                    
+                    console.log("Data Reached to front end");
+                        //console.log(res.data);
+                        var places =res.data.path;
+                        var lat = res.data.lat;
+                        var lon=res.data.lon;
+                        var time_actual = res.data.time_actual;
+                        var time_intermediate = res.data.time_intermediate;
+                        var images = res.data.images;
+                        var category = res.data.category;
+                        var address = res.data.address;
+                        var website = res.data.website;
+                        var description = res.data.description;
+
+
+                        var startArray = [];
+                        var endArray = [];
+                        var t = 0;
+                        for(var i=0;i<places.length;i++){
+                            if(i>0){
+                                startArray.push(t);
+                                t=t+(time_actual[i]/60.0);
+                                endArray.push(t);
+                            }
+
+                            if(i<places.length-1){
+                                startArray.push(t);
+                                t=t+time_intermediate[i]/60.0;
+                                endArray.push(t);
+                            }
+                        }
+                        var to_be_stored = {...res.data,startArray,endArray};
+
+                        localStorage.setItem("myResults",JSON.stringify(to_be_stored));
+                        // para.innerHTML = `<h1 style="margin-top: 2%; color:blue;"> Planning For Your Query For ${location} for ${time} minutes</h1>`;
+
+                        
+                        //id,image,title,startTime,endTime,Category,Address,website)
+                        
+                        localStorage.setItem("city",location);
+                        localStorage.setItem("startDate",startTime);
+                        localStorage.setItem("endDate",endTime);
+                        
+                        var para = document.getElementById("results");
+                        var id=1;
+                        //console.log(startTime);
+                        var z=0;
+
+                        for(var i=0;i<places.length;i++){
+                            if(i>0){
+                                para.innerHTML += build_card(id,images[i],places[i],startArray[z],endArray[z],category[i],address[i],website[i],description[i]); 
+                                id=id+1;
+                                z=z+1;
+                            }
+                            
+                            if(i<places.length-1){
+                                // para.innerHTML+=`<br/><h1> Drive From ${printFormatOfTime(startArray[z])} to ${printFormatOfTime(endArray[z])} For  ${time_intermediate[i]}  minutes </h1><br/>`;
+                              /* para.innerHTML += `<div class="travel-card-container">
+                                                    <div class="travel-card">
+                                                        <div class="travel-time">
+                                                            <h3>${time_intermediate[i]} min</h3>   
+                                                        </div>
+                                                        
+                                                        <div class="travel-image">
+                                                            <img src="images/car.png" alt="image"/>
+                                                        </div>
+
+                                                        <div class="travel-text">
+                                                            
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>`
+                                */
+                                para.innerHTML += `<div class="travel-card-container">
+                                    <div class="travel-card">
+                                        
+                                        
+                                        <div class="travel-image">
+                                        <!--  <img src="car.png" alt="image"/> -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189l.956-1.913A.5.5 0 0 1 4.309 3h7.382a.5.5 0 0 1 .447.276l.956 1.913a.51.51 0 0 1-.497.731c-.91-.073-3.35-.17-4.597-.17-1.247 0-3.688.097-4.597.17a.51.51 0 0 1-.497-.731Z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="travel-time1"> 
+                                        <div id="travel-time${id}">
+                                            ${time_intermediate[i]}
+                                        
+                                        </div>
+                                        </div>
+                            
+                                        <div class="travel-text">
+                                            
+                                        </div>
+                            
+                            
+                                    </div>
+                                </div>`
+                                z=z+1;
+                            }
+                        }
+                        para.innerHTML+="<br> <span style='color:red;'>That's ALL Enjoy!!";
+                        description_keeper(lat,lon,description);    
+                        // window.scrollBy(0, 400);
+                        document.getElementById("mapbtn").style.display = "block";
+                        document.getElementById("calenderbtn").style.display = "block";
+                }
+
+        </script>
+
+        <title>Trip Planning made easy </title>
+        <link href = "assets/style.css" rel = "stylesheet" type = "text/css"> 
+    </head>
+    <body>
+       <nav class="navbar sticky-top navbar-light bg-light">
+        <a class="navbar-brand" >ITINERARY FOR WORLD</a>
+            <button onclick="OpenMapFunctionality()" class="btn btn-primary" id="mapbtn" style="display: none;">Switch To Map Mode </button>
+            <button onclick="OpenCalenderFunctionality()" class="btn btn-primary" id="calenderbtn" style="display: none;">Switch To Calender Mode </button>
+          </nav>
+
+
+
+        <!-- <button onclick="OpenMapFunctionality()" id="mapbtn" style="position:fixed; color: green; display: none; margin-left: 5px; margin-top: 15vh;">Switch To Map Mode </button>
+        <button onclick="OpenCalenderFunctionality()" id="calenderbtn" style="position:fixed; color: green; display: none; margin-left: 5px; margin-top: 20vh;">Switch To Calender Mode </button>
+         -->
+        <!-- <h1 style="position: absolute; color: black; margin-left: 30vw; font-weight: 900; font-size: 300%; display:none; margin-top: 40vh; background-color: white;" id="load" >Waiting For Your Results fetch........</h1> -->
+        <div class="load" id="load" style="display: none;"> </div>
+
+        <!-- HOME SECTION STARTS -->
+        <section class="home" id="home">
+            <div class="box" id="pic1" style="background: url(images/home-bg-1.jpeg) no-repeat;">
+                <div class="content">
+                    <div class="form-popup" id="myForm" style="display: block;">
+                        <form class="form-container">
+                          <h1>Start Planning</h1>
+                            
+                          <!-- <label for="destination"><b>DESTINATION</b></label> -->
+                          <br/>
+                          
+
+
+
+
+                          <select name = "dropdown" class="form-control" id="location">
+                            <option value = "Mumbai" selected>Mumbai</option>
+                            <option value = "Bangkok">Bangkok</option>
+                            <!-- <option value = "seoul">Seoul</option> -->
+                            <option value = "London">London</option>
+                            <option value = "milan">Milan</option>
+                            <option value = "Paris">Paris</option>
+                            <option value = "rome">Rome</option>
+                            <!-- <option value = "shanghai">Shanghai</option> -->
+                            <!-- <option value = "new-york-city">New York</option> -->
+                            <option value = "amsterdam">Amsterdam</option>
+                            <option value = "Istanbul">Istanbul</option>
+                            <option value = "tokyo">Tokyo</option>
+                            <!-- <option value = "dubai">Dubai</option> -->
+                            <option value = "vienna">Vienna</option>
+                            <option value = "taipei">Taipei</option>
+                            <option value = "hong-kong">Hong Kong</option>
+                            <option value = "riyadh">Riyadh</option>
+                            <option value = "barcelona">Barcelona</option>
+                            <!-- <option value = "los-angeles">Los Angeles</option> -->
+                         </select>
+                      <br/> 
+                         
+
+
+
+                          <label for="startTime"><b>Start Of Journey </b></label>
+                          <!-- <input type ="time" name="startTime" id = "startTime" required> -->
+                          <input type ="date" name="startTime" id = "startTime" required>
+
+                          <br>
+                          <br>
+        
+                          <label for="endTime"><b>End Of Journey </b></label>
+                          <!-- <input type="time" name="endTime" id="endTime" required> -->
+                          <input type="date" name="endTime" id="endTime" required> 
+                          <br>
+                          <br>
+                        
+                          <a>  <button type="button" class="btn" onclick="submitForm()">Submit</button></a>
+                          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class = "services" id="response" style="display:none;">
+            <div class="box">
+                <div class="content" >
+                    <h1 class="h11"> Day Planning in <span id="loca">Mumbai</span> for <span id="displayDate">Starting Date - Ending Date</span> </h1>
+                    
+                </div>
+            </div>
+
+        <p>
+            
+             <p id="results" style="text-align: center;" style="display:none;">
+                
+            </p>
+         </p>
+        </section>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+
+
+
+        <script>
+           // lat = [19.04346,18.939844];
+           // long = [72.82465,72.83545];
+           // var str = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum";
+        function description_keeper(lat,lon,description){
+            for (var i = 1;i<description.length;i++) {
+                console.log("i is ",i)
+                console.log(description[i]);
+            if (description[i]=== null) continue;
+            var str2 = "desc" + i;
+            var para1 = document.getElementById(str2);
+            const arr = description[i].split(' ');
+            console.log(arr);
+            for (var i = 0;i<15;i++) {
+                   para1.innerHTML+=`${arr[i]}`
+                   para1.innerHTML+=` `
+            }
+            console.log(para1.innerHTML);
+            var str1 = "";
+
+            for (var i =15;i<arr.length;i++) {
+                console.log(para1.innerHTML);
+                str1 += `${arr[i]}`;
+                str1 += " ";
+            
+            }
+
+            para1.innerHTML+= `<span id="dots${i}">...</span><span id="more{i}"> ${str1}</span>`;
+            para1.innerHTML+=`<button onclick="myFunction(${i})" id="myBtn${i}" style = "display:inline-block;" class="btn btn-light">Read more</button>`;
+                console.log(para1.innerHTML);
+        }
+
+    //     for (var i = 0;i<lat-1;i++) {
+            
+    //        var str2 = "tarvel-time" + i+1;
+    //         var para = document.getElementById(str2); 
+            
+    //         para.innerHTML += `<a class="travelTime secondary-text-link" href="https://www.google.com/maps/dir/?api=1&amp;origin=${lat[i]}, ${long[i]}&amp;destination=${lat[i+1]},${long[i+1]}&amp;travelmode=driving" rel="nofollow noopener noreferrer" target="_blank"> click
+    //             </a>`
+    // }
+
+
+
+        }
+        
+           
+            
+        </script>
+
+            <script>
+                function myFunction(x) {
+                    var str1 = "dots" + x;
+                    var str2 = "more" + x;
+                    var str3 = "myBtn" + x;
+            var dots = document.getElementById(str1);
+            var moreText = document.getElementById(str2);
+            var btnText = document.getElementById(str3);
+
+            if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btnText.innerHTML = "Read more"; 
+            moreText.style.display = "none";
+            } else {
+            dots.style.display = "none";
+            btnText.innerHTML = "Read less"; 
+            moreText.style.display = "inline";
+            }
+            }
+            </script>
+       
+    </body>
+
+</html>

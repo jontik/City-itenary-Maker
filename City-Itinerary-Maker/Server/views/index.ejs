@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+        <html>
+           <head>
+              <title>OSM and Leaflet</title>
+              <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js" ></script>
+              <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+              <link href='assets/styleOfMap.css' rel='stylesheet' />
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+                  
+           <script>
+            function OpenCalenderFunctionality(){
+                    var x = JSON.parse(localStorage.getItem("myResults"));
+                    var start=[],end=[];
+                    for(var i=0;i<x.startArray.length;i++){
+                        start.push(Math.round(x.startArray[i]*100)/100);
+                        end.push(Math.round(x.endArray[i]*100)/100);
+                    }
+                    var places = x.path;
+                    var startDate = localStorage.getItem("startDate");
+                    window.location.replace("/c/"+start+"/"+end+"/"+places+"/"+startDate);
+                }
+            function OpenMainPage(){
+                window.location.replace("/main");
+                    }       
+
+           </script>
+            
+
+            </head>
+
+
+            <body>
+                <!-- <button onclick="OpenCalenderFunctionality()" id="calenderbtn" style="color: green; position: absolute; margin-top: 5vh; margin-left: 80vw; z-index: 999;">Switch To Calender Mode </button>
+                <button onclick="OpenMainPage()" id="main" style="color: green; position: absolute; margin-top: 8vh; margin-left: 80vw; z-index: 999;">Switch To Main Page </button> -->
+                <nav class="navbar sticky-top navbar-light bg-light">
+                    <a class="navbar-brand" >ITINERARY FOR WORLD</a>
+                        <button onclick="OpenCalenderFunctionality()" class="btn btn-primary" id="calenderbtn">Switch To Calender Mode</button>
+                        <button onclick="OpenMainPage()" class="btn btn-primary" id="main">Switch To Main Page </button>
+                      </nav>
+
+                <div id="map1">
+                    <div class="top-div">
+                    
+                        <span class="top-div-span2">MAP </span> </span>
+                    </div>
+                    <div id="result">   
+                        <div id="date_result">
+                        
+                          <h1></h1>
+                          <div class="btn-div"> <button type="button" class="btn btn-primary" onclick="Make_map(-1)">ALL</button> </div>
+                     
+                        </div>
+                      <!--  <div class="btn-div"><button onclick="mapmyindia_sample_marker()" >Add Default Marker</button></div> 
+                        <div class="btn-div"><button onclick="mapmyindia_custom_marker()" >Add Custom Marker</button></div>
+                        <div class="btn-div"><button onclick="mapmyindia_multiple_markers()" >Add Multiple Markers</button></div>
+                        <div class="btn-div"><button onclick="mapmyindia_number_on_marker()" >Add Number on Markers</button></div>
+                        <div class="btn-div"><button onclick="mapmyindia_text_on_marker()" >Add Text to Markers</button></div>
+                        <div class="btn-div"><button onclick="mapmyindia_Arrow_marker()">Arrow Markers</button></div>
+                        <div class="btn-div"><button onclick="mapmyindia_draggable_marker()" >Make Marker Draggable</button></div>
+                        <div class="btn-div"><button onclick="mapmyindia_removeMarker()" >Remove Marker(s)</button></div>
+                      -->
+            
+                     
+                    </div>
+                     <div id="map"></div>
+                     
+                     
+                   
+    
+    
+                 <!-- <div id = "map" style = "width: 900px; height: 580px"></div> -->
+                  </div>
+
+          </body>
+           <script>
+             // Creating map options
+
+                
+                var data = JSON.parse(localStorage.getItem("myResults"));
+                var latitudeArr = data.lat;
+                var longitudeArr = data.lon;
+                var title1 = data.path;
+                var images = data.images;
+                // latitudeArr = latitudeArr.split(',').map(Number);
+                // longitudeArr = longitudeArr.split(',').map(Number);
+                // title1 = title1.split(',');
+                // console.log(latitudeArr);
+                // console.log("Reached Here");
+                // function format(x){
+                //     x = x.split(',');
+                //     var res="";
+                //     var z = x[0].split('/');
+                //     for(var i=2;i>=0;i--){res=res+z[i]; if(i>0){res=res+"-";}}
+                //     res=res+"T";
+                //     res= res + x[1].substring(1);
+                //     return res;
+                // }
+                var map = null;
+                var marker = [];
+                var startDate = localStorage.getItem("startDate");
+                var s = new Date(startDate).getTime();
+                var dates = data.startArray;
+                var dates_id = [];
+                for(var i=0;i<dates.length;i++){
+                    var t = Math.trunc(dates[i]/8.0);
+                    dates_id.push(t);
+                    dates[i]= (new Date(s+86400000*t)).toDateString() ;
+                }
+
+            
+                date = Array.from(new Set(dates));
+                date_id = Array.from(new Set(dates_id));
+            
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 
+
+
+
+
+
+                 
+               
+                
+                /*
+                var latitudeArr = [34.0903694, 34.19865, 34.949192, 34.957361, 34.041889, 34.945662];
+                var longitudeArr = [118.8452424, 118.17662,118.798897 , 118.808472,118.818359,118.793755];
+                var title1 = ["T1","T2","T3","T4","T5","T6"];
+                var dates = ["date1","date1","date2","date2","date2","date3"];
+                var date = ["date1","date2","date3"];
+                var dates_id = [0,0,1,1,1,2];
+                var date_id = [0,1,2];
+                var id = [1,2,3,4,5,6];
+                var web = ['www.google.com',"www.google.com","www.google.com","www.google.com","www.google.com","www.google.com"];
+                var src = ['https://maps.mapmyindia.com/images/2.png','https://maps.mapmyindia.com/images/2.png','https://maps.mapmyindia.com/images/2.png',
+                            'https://maps.mapmyindia.com/images/2.png','https://maps.mapmyindia.com/images/2.png','https://maps.mapmyindia.com/images/2.png'];
+                */
+                len = latitudeArr.length;
+                let customList = new Array();
+                for (var i=0;i<len;i++) {
+                    var p = {};
+                    
+                    p["lat"] = latitudeArr[i];
+                    p["long"] = longitudeArr[i];
+                    p["title"] = title1[i]; 
+                    p["src"] = images[i];
+                
+                    customList.push(p);
+                }  
+
+
+                 let locations = customList;
+
+
+
+                 var mapOptions = {
+                        center: [customList[0]['lat'],customList[0]['long']],
+                        zoom: 12,
+                        zoomConrol: true, 
+                        hybrid: true
+                    }
+
+
+                window.onload = function () {
+                var para1 = document.getElementById("date_result");
+                console.log(para1);
+                for (var i = 0;i<date.length;i++) {
+                     console.log(date[i]);
+                    //para1.innerHTML+=`<div class="btn-div"><button onclick="Make_map(${date_id[i]})"> ${date[i]} </div>`
+                        para1.innerHTML+=`<div class = "btn-div"><button type="button" class="btn btn-primary" onclick="Make_map(${date_id[i]})">${date[i]}</button></div>`
+                    
+                }
+                Make_map(-1);
+            }
+                    
+
+
+                var markerList = [];
+                console.log(L);
+                var map = new L.map("map",mapOptions);
+                var k;
+
+               // Make_map(-1);
+
+                function Make_map (x) {
+
+                    
+                  //      map.removeLayer(k);
+                    
+                    
+
+                    
+                
+                    
+                    // Creating a map object
+                    
+                   /* var str;
+                    if (x==1) {
+                        str = 'map-2';
+                        var y = document.getElementById("map-1");
+                        y.style.display="none";
+                    }
+                    else {
+                        str = "map-1";
+                        var y = document.getElementById("map-2");
+                        y.style.display="none";
+                    }*/
+                //  map = new L.map("map", mapOptions);
+                   
+                
+
+                /*    map = new ol.Map({
+                    target: "map",
+                    layers: [
+                        new ol.layer.Tile({
+                            source: new ol.source.OSM({
+                                url: "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            })
+                        })
+                    ],
+                    view: new ol.View({
+                        center: [48.8702,2.3368],
+                        zoom: mapDefaultZoom
+                    })
+                });
+                    */
+                    // Creating a Layer object
+              //    var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+                   var layer = new L.TileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+                    
+                    
+                    map.addLayer(layer);
+                    
+
+                    let iconOptions = {
+                        draggable:true,
+                        
+                    }
+
+                    
+
+                    let popupOption = {
+                        "closeButton" : true
+                    }
+                   
+                    markerList.forEach(element => {
+                        map.removeLayer(element);
+                    });
+                    var count = 0;
+                    for (var i = 0,j=1; i < latitudeArr.length; i++,j+=2) {
+                        console.log("from main function");
+                        element = customList[i];
+                       // console.log(element.title);
+                        
+
+                        if (dates_id[j]==x||x==-1) {
+                            count++;
+                        k = new L.Marker([latitudeArr[i],longitudeArr[i]],iconOptions,popupOption).addTo(map)
+                        .on("mouseover",event =>{
+                            //event.target.bindPopup('<div class="card"><img src="'+src[i]+'" width="80" height="80" alt="'+title[i]+'"> <h3>'+title[i]+'</h3></div>').openPopup();
+                            //event.target.bindPopup('<div class="card"><img src=" + ">"+'" width="80" height="80" alt="'+title1[i]+'">   <h3>'+title1[i]+'</h3></div>').openPopup();
+                            //event.target.blindPopup("<div class='card'><img  src="https://maps.mapmyindia.com/images/2.png">  '" width = "80" height = "80" alt="T1"> <h3>"T1"</h3></div>").openPopup();
+                            //event.target.bindPopup('<div class="card"><img src="'+element.src+'" width="auto" height="auto" alt="'+element.title+'">    <h5>'+element.title+'</h5> <span> ID = <span>'+count+'</span> </span>  <span> LAT = <span>'+element.lat+'</span> </span>  <span> LONG = <span>'+element.long+'</span> </span> </div>').openPopup();
+                           
+                        })
+                        .on("mouseout", event => {
+                            event.target.closePopup();
+                        })
+                        .on("click" , () => {
+                            //window.open(web[i]);
+                           
+                        })
+                        k.bindPopup('<div class="card"><img src="'+element.src+'" width="auto" height="auto" alt="'+element.title+'">    <h5>'+element.title+'</h5> <span> ID = <span>'+count+'</span> </span>  <span> LAT = <span>'+element.lat+'</span> </span>  <span> LONG = <span>'+element.long+'</span> </span> </div>').openPopup();
+                        markerList.push(k);
+                        
+                    }
+                    
+                    };
+
+                    //function mapmyindia_fit_markers_into_bound() {
+                        var maxlat = Math.max.apply(null, latitudeArr);
+                        var maxlon = Math.max.apply(null, longitudeArr);
+                        var minlat = Math.min.apply(null, latitudeArr);
+                        var minlon = Math.min.apply(null, longitudeArr);
+                        var southWest = L.latLng(maxlat, maxlon);/*south-west WGS location object*/
+                        var northEast = L.latLng(minlat, minlon);/*north-east WGS location object*/
+                        var bounds = L.latLngBounds(southWest, northEast);/*This class represents bounds on the Earth sphere, defined by south-west and north-east corners*/
+                        map.fitBounds(bounds);/*Sets the center map position and level so that all markers is the area of the map that is displayed in the map area*/
+                   // }
+                        
+                  //  console.log(map);
+                    console.log("reached");
+                    //  k = new L.Marker([49.8702,2.3368],iconOptions,popupOption);
+                    // k.addTo(map);
+                    // map.removeLayer(k);
+                     
+                
+
+                    
+                   // console.log(map.removeLayer());
+                    
+                 //  console.log(delete map.Marker);
+                  // console.log(map.Marker);
+                     
+                  
+
+
+
+                }
+           </script>
+             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+           
+        </html>
